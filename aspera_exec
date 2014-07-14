@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ $# != 2 ]; then
+    echo "CANTIDAD INCORRECTA DE ARGUMENTOS"
+    exit
+fi
+DEST_ID=$1
+PASS=$2
+echo $DEST_ID
+echo $PASS
+export ASPERA_SCP_PASS=$PASS
+echo y | /oxobox/engine/aspera_main.py $DEST_ID

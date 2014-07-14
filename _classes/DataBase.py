@@ -1,4 +1,11 @@
 # -*- coding: utf-8 -*-
+# Name:         DataBase
+# Purpose:      Objeto DataBase es un wrapper del mysql connector
+#
+# Author:       Pela
+#
+# Created:      11/03/2013
+# Copyright:    (c) Pela 2013
 import sys
 import logging
 from random import choice
@@ -132,7 +139,7 @@ class DataBase(object):
             return 0
         else:
             self.db.commit()
-            cursor.close()
+            # cursor.close()
             self.db.close()
             return last_id
 
