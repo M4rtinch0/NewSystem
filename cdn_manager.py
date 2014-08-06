@@ -53,15 +53,16 @@ if __name__ == '__main__':
 
     set_logger()
     lock = None
-    try:
-        lock = Ilock("/tmp/ilock_cdn_{}.lock".format(sys.argv[1])).acquire()
-    except Exception as e:
-        logger.error(e)
-
-    if lock:
-        logger.info("### Ejecuto el CDN manager ({})".format(sys.argv[1]))
-        main(*sys.argv[1:])
-    else:
-        logger.info("### Ya hay un CDN manager ({})".format(sys.argv[1]))
-
+    # try:
+    #     lock = Ilock("/tmp/ilock_cdn_{}.lock".format(sys.argv[1])).acquire()
+    # except Exception as e:
+    #     logger.error(e)
+    #
+    # if lock:
+    #     logger.info("### Ejecuto el CDN manager ({})".format(sys.argv[1]))
+    #     main(*sys.argv[1:])
+    # else:
+    #     logger.info("### Ya hay un CDN manager ({})".format(sys.argv[1]))
+    logger.info("### Ejecuto el CDN manager ({})".format(sys.argv[1]))
+    main(*sys.argv[1:])
     sys.exit(0)
